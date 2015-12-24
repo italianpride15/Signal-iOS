@@ -31,10 +31,6 @@ static NSString *const kURLHostVerifyPrefix             = @"verify";
 
 #pragma mark Detect updates - perform migrations
 
-+ (void)initialize {
-    [AppStoreRating setupRatingLibrary];
-}
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
@@ -111,6 +107,8 @@ static NSString *const kURLHostVerifyPrefix             = @"verify";
         [[PushManager sharedManager] validateUserNotificationSettings];
         [TSPreKeyManager refreshPreKeys];
     }
+
+    [AppStoreRating setupRatingLibrary];
 
     return YES;
 }
